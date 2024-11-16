@@ -3,7 +3,7 @@ import { axiosConfig } from "../axios";
 export const getAllSong = async () => {
   return await axiosConfig({
     method: "get",
-    url: "/song",
+    url: "/song/",
   });
 };
 

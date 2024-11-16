@@ -6,6 +6,8 @@ import User from "./pages/User";
 import Song from "./pages/Song";
 import Artist from "./pages/Artist";
 import Genre from "./pages/Genre";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path={PATH.ARTIST} element={<Artist />} />
         <Route path={PATH.GENRE} element={<Genre />} />
       </Route>
+      <Route path={PATH.LOGIN} element={<Login />} />
+      <Route path={PATH.REGISTER} element={<Register />} />
     </Routes>
   );
 }

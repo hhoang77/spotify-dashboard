@@ -5,4 +5,6 @@ export const PATH = {
   SONG: "/dashboard/song",
   ARTIST: "/dashboard/artist",
   GENRE: "/dashboard/genre",
+  LOGIN: "/login",
+  REGISTER: "/register",
 };

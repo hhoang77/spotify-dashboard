@@ -30,7 +30,6 @@ axiosConfig.interceptors.response.use(
     return response; // Axios sẽ tự động hiểu kiểu response này là AxiosResponse<any>
   },
   async (error) => {
-    // Xử lý lỗi ở đây
     const originalRequest = error.config;
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
