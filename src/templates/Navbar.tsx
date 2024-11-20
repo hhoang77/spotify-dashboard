@@ -26,7 +26,7 @@ function Navbar() {
       <Link to="/dashboard/song">
         <div
           className={`${
-            location.pathname === "/dashboard/song/" ? "bg-gray-300" : ""
+            location.pathname === "/dashboard/song" ? "bg-gray-300" : ""
           } m-2 p-3 cursor-pointer hover:bg-gray-300 rounded-md text-black flex items-center gap-2 opacity-50`}
         >
           <FaGuitar className="text-2xl" />
@@ -36,7 +36,7 @@ function Navbar() {
       <Link to="/dashboard/artist">
         <div
           className={`${
-            location.pathname === "/dashboard/artist/" ? "bg-gray-300" : ""
+            location.pathname === "/dashboard/artist" ? "bg-gray-300" : ""
           } m-2 p-3 cursor-pointer hover:bg-gray-300 rounded-md text-black flex items-center gap-2 opacity-50`}
         >
           <FaMusic className="text-2xl" />

@@ -19,7 +19,21 @@ const login = Yup.object().shape({
     .required("Password is Required"),
 });
 
+const updateUserByAdmin = Yup.object().shape({
+  username: Yup.string().min(3).required("Username is Required"),
+  subscriptionType: Yup.string()
+    .required("You must select an subscriptionType")
+    .notOneOf([""], "You must select an option"),
+  phone: Yup.string()
+    .required("Phone number is Required")
+    .matches(phoneRegExp, "Phone number is not valid"),
+  role: Yup.string()
+    .required("You must select an role")
+    .notOneOf([""], "You must select an option"),
+});
+
 export const userValidate = {
   register,
   login,
+  updateUserByAdmin,
 };

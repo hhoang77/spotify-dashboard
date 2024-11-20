@@ -18,14 +18,21 @@ function Artist() {
   useEffect(() => {
     dispatch(getAllArtistAction());
   }, [dispatch]);
-  const { data, error, loading } = useSelector(
-    (state: RootState) => state.artist
-  );
-  console.log(data);
+  const { data } = useSelector((state: RootState) => state.artist);
 
   return (
     <div className="w-full h-full">
-      <div className=" text-2xl font-medium">Nghệ sĩ</div>
+      <div className="flex justify-between m-4">
+        <div className=" text-2xl font-medium">Artist</div>
+        <div className=" text-2xl font-medium">
+          <a
+            href="/dashboard/artist/add-new"
+            className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded "
+          >
+            Thêm mới
+          </a>
+        </div>
+      </div>
       <div className="relative overflow-x-auto sm:rounded-md my-2 mx-8">
         <table
           style={{

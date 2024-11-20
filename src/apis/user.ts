@@ -30,6 +30,17 @@ export const deteleUser = async (id: string) => {
   });
 };
 
+export const updateUser = async (id: string, data: any) => {
+  console.log(id);
+  console.log(data);
+
+  return await axiosConfig({
+    method: "put",
+    url: `/user/updateByAdmin?id=${id}`,
+    data,
+  });
+};
+
 export const updateRole = async (id: string, role: string) => {
   return await axiosConfig({
     method: "put",

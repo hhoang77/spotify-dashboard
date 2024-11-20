@@ -6,14 +6,15 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGUT_FAILURE,
-  //   LOGUT_REQUEST,
-  //   LOGUT_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
   GETALLUSER_FAILURE,
   GETALLUSER_REQUEST,
   GETALLUSER_SUCCESS,
+  UPDATEUSER_FAILURE,
+  UPDATEUSER_REQUEST,
+  UPDATEUSER_SUCCESS,
 } from "../actions/authActions";
 
 interface AuthState {
@@ -29,12 +30,11 @@ const initialState: AuthState = {
 };
 
 const authReducer = (state = initialState, action: any) => {
-  console.log(action);
-
   switch (action.type) {
     case REGISTER_REQUEST:
     case LOGIN_REQUEST:
     case GETALLUSER_REQUEST:
+    case UPDATEUSER_REQUEST:
       return {
         ...state,
         loading: true,
@@ -48,9 +48,19 @@ const authReducer = (state = initialState, action: any) => {
         loading: false,
         user: action.payload,
       };
+    case UPDATEUSER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        user: state.user.map((u: any) =>
+          u._id === action.payload._id ? { ...u, ...action.payload } : u
+        ),
+      };
+
     case REGISTER_FAILURE:
     case LOGUT_FAILURE:
     case GETALLUSER_FAILURE:
+    case UPDATEUSER_FAILURE:
       return {
         ...state,
         loading: false,

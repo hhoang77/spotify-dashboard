@@ -9,6 +9,10 @@ import Genre from "./pages/Genre";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+import Create_Song from "./pages/add-new/Song";
+import Create_genre from "./pages/add-new/Genre";
+import Create_Artist from "./pages/add-new/Artist";
+
 function App() {
   return (
     <Routes>
@@ -21,6 +25,9 @@ function App() {
       </Route>
       <Route path={PATH.LOGIN} element={<Login />} />
       <Route path={PATH.REGISTER} element={<Register />} />
+      <Route path={PATH.CREATE_SONG} element={<Create_Song />} />
+      <Route path={PATH.CREATE_GENRE} element={<Create_genre />} />
+      <Route path={PATH.CREATE_ARTIST} element={<Create_Artist />} />
     </Routes>
   );
 }

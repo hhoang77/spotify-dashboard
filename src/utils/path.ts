@@ -7,4 +7,7 @@ export const PATH = {
   GENRE: "/dashboard/genre",
   LOGIN: "/login",
   REGISTER: "/register",
+  CREATE_SONG: "/dashboard/song/add-new",
+  CREATE_GENRE: "/dasboard/genre/add-new",
+  CREATE_ARTIST: "/dashboard/artist/add-new",
 };

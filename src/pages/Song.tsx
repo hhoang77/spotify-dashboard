@@ -1,6 +1,9 @@
 import { MdOutlineModeEditOutline, MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllSongAction } from "../store/actions/songActions";
+import {
+  getAllSongAction,
+  deleteSongAction,
+} from "../store/actions/songActions";
 import { RootState, AppDispatch } from "../store/reducers/index";
 import { useEffect } from "react";
 
@@ -30,9 +33,24 @@ function Song() {
 
   const song = useSelector((state: RootState) => state.song);
 
+  const handleDeleteSong = (id: string) => {
+    const response = dispatch(deleteSongAction(id));
+    console.log(response);
+  };
+
   return (
     <div className="w-full h-full">
-      <div className=" text-2xl font-medium">Movie</div>
+      <div className="flex justify-between m-4">
+        <div className=" text-2xl font-medium">Song</div>
+        <div className=" text-2xl font-medium">
+          <a
+            href="/dashboard/song/add-new"
+            className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded "
+          >
+            Thêm mới
+          </a>
+        </div>
+      </div>
       <div className="relative overflow-x-auto sm:rounded-md my-2 mx-8">
         <table
           style={{
@@ -85,7 +103,10 @@ function Song() {
                     <span className="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:opacity-60 cursor-pointer">
                       <MdOutlineModeEditOutline className="text-2xl" />
                     </span>
-                    <span className="text-red-600 hover:opacity-70 cursor-pointer">
+                    <span
+                      onClick={() => handleDeleteSong(item._id)}
+                      className="text-red-600 hover:opacity-70 cursor-pointer"
+                    >
                       <MdDeleteForever className="text-2xl " />
                     </span>
                   </td>

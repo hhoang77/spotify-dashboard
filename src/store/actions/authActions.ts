@@ -2,13 +2,17 @@ import {
   login,
   register,
   deteleUser,
-  updateRole,
+  updateUser,
   getAllUser,
 } from "../../apis/user";
 
 export const GETALLUSER_REQUEST = "GETALLUSER_REQUEST";
 export const GETALLUSER_SUCCESS = "GETALLUSER_SUCCESS";
 export const GETALLUSER_FAILURE = "GETALLUSER_FAILURE";
+
+export const UPDATEUSER_REQUEST = "UPDATEUSER_REQUEST";
+export const UPDATEUSER_SUCCESS = "UPDATEUSER_SUCCESS";
+export const UPDATEUSER_FAILURE = "UPDATEUSER_FAILURE";
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -62,6 +66,21 @@ export const loginUser = (data: any) => {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data.content });
     } catch (error: any) {
       dispatch({ type: LOGIN_FAILURE, payload: error.response.data });
+    }
+  };
+};
+
+export const updateUserAction = (id: any, data: any) => {
+  return async (dispatch: any) => {
+    try {
+      dispatch({ type: UPDATEUSER_REQUEST });
+      const response = await updateUser(id, data);
+      console.log(response);
+
+      dispatch({ type: UPDATEUSER_SUCCESS, payload: response.data.content });
+    } catch (error: any) {
+      console.log(error);
+      dispatch({ type: UPDATEUSER_FAILURE, payload: error.response.message });
     }
   };
 };

@@ -17,7 +17,7 @@ const initialState: genreSate = {
 };
 
 const genreReduce = (state = initialState, action: any) => {
-  console.log(action);
+  // console.log(action);
 
   switch (action.type) {
     case GETALLGENRE_REQUEST:
